@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SMS.Web.Models;
 
@@ -6,26 +6,16 @@ namespace SMS.Web.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+   public IActionResult Index()
+   {
+       return Content("Web Development");
+   }
+   public IActionResult About()
+{
+   // construct the view model
+   var about = new AboutViewModel {
+     Formed = new DateTime(2020, 01, 01)      
+   };
+   return View(about);
+}
 }
