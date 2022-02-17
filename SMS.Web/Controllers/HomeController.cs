@@ -15,7 +15,10 @@ namespace SMS.Web.Controllers
       {
          // construct the view model
          var about = new AboutViewModel {
-         Formed = new DateTime(2020, 01, 01)      
+         
+         Title = "About Us Page",
+         Message = "Custom Message Entered Here:",
+         Formed = new DateTime(1997, 12, 03),
          };
          return View(about);
       }
